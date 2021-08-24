@@ -21,7 +21,7 @@ spring:
           uri: lb://producto-service
           predicates:
             - Path=/productos/**
-        - id: shopping-service
-          uri: lb://shopping-service
+        - id: compra-service
+          uri: lb://compra-service
           predicates:
             - Path=/invoices/**
