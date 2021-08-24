@@ -1,0 +1,27 @@
+server:
+  port: 8080
+#apunta al euerka server como cliente
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      #ruteo de cada uno de nuestros microservicios
+      routes:
+        - id: cliente-service
+          uri: lb://cliente-service
+          predicates:
+            - Path=/customers/**
+        - id: producto-service
+          uri: lb://product-service
+          predicates:
+            - Path=/productos/**
+        - id: shopping-service
+          uri: lb://shopping-service
+          predicates:
+            - Path=/invoices/**
