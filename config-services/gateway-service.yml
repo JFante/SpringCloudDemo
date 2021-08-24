@@ -20,7 +20,7 @@ spring:
         - id: producto-service
           uri: lb://producto-service
           predicates:
-            - Path=/productos/**
+            - Path=/producto/**
         - id: compra-service
           uri: lb://compra-service
           predicates:
